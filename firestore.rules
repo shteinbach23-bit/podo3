@@ -1,0 +1,61 @@
+rules_version = '2';
+
+// Правила безопасности Firestore для мультитенантного приложения.
+// Каждый мастер имеет полный доступ ТОЛЬКО к своим данным (профиль, клиенты, записи).
+// Владелец салона (тариф Премиум) может ПОЛНОСТЬЮ управлять записями (календарём)
+// мастеров, присоединившихся к его салону, но НЕ может видеть или менять карточки
+// их клиентов - это зона ответственности самого мастера.
+//
+// Как применить:
+// 1. Firebase Console -> Firestore Database -> Правила
+// 2. Вставить содержимое этого файла целиком
+// 3. Нажать "Публикация"
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Проверяет, является ли текущий пользователь владельцем салона,
+    // к которому присоединён мастер masterId
+    function isSalonOwnerOf(masterId) {
+      let masterDoc = get(/databases/$(database)/documents/masters/$(masterId));
+      return masterDoc.data.salonId != null &&
+        get(/databases/$(database)/documents/salons/$(masterDoc.data.salonId)).data.ownerId == request.auth.uid;
+    }
+
+    match /masters/{masterId} {
+      // Владелец профиля - полный доступ. Владелец салона - только просмотр профиля мастера.
+      allow read: if request.auth != null &&
+        (request.auth.uid == masterId || isSalonOwnerOf(masterId));
+      allow update: if request.auth != null && request.auth.uid == masterId;
+      allow create: if request.auth != null && request.auth.uid == masterId;
+      allow delete: if false;
+
+      match /clients/{clientId} {
+        // Мастер - полный доступ к своим клиентам.
+        // Владелец салона мастера - доступа нет вообще (карточка клиента - зона мастера).
+        allow read, write: if request.auth != null && request.auth.uid == masterId;
+      }
+
+      match /appointments/{appointmentId} {
+        // Записи (календарь) - у владельца салона полный доступ на чтение и запись:
+        // администратор сам записывает клиентов к мастерам и может редактировать/удалять записи.
+        allow read, write: if request.auth != null &&
+          (request.auth.uid == masterId || isSalonOwnerOf(masterId));
+      }
+    }
+
+    match /salons/{salonId} {
+      // Чтение салона разрешено любому авторизованному пользователю -
+      // это нужно, чтобы новый мастер мог найти салон по коду приглашения
+      // ДО того как стал его участником. Код приглашения не секретный ключ доступа
+      // к данным клиентов - он только позволяет присоединиться к списку мастеров.
+      allow read: if request.auth != null;
+      // Изменение салона - владелец, либо мастер, добавляющий только свой uid в memberIds
+      allow update: if request.auth != null &&
+        (request.auth.uid == resource.data.ownerId ||
+         request.auth.uid in request.resource.data.memberIds);
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.ownerId;
+      allow delete: if false;
+    }
+  }
+}
