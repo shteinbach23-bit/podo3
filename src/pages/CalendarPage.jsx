@@ -259,7 +259,7 @@ export default function CalendarPage() {
       {/* Modal */}
       {showNewModal && (
         <div className="modal-overlay" onClick={() => { setShowNewModal(false); setEditingSlot(null); }}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{width: '480px', maxWidth: 'calc(100vw - 2rem)', boxSizing: 'border-box', overflowX: 'hidden'}}>
             <h3>{editingSlot ? editingSlot : "Новая запись"}</h3>
             <div className="form-field">
               <label>Время</label>
