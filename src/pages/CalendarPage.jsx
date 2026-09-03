@@ -63,9 +63,13 @@ export default function CalendarPage() {
   }
 
   useEffect(() => {
-    loadAppointments();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, dateKey]);
+    if (showNewModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [showNewModal]);
 
   function prevMonth() {
     if (viewMonth === 0) { setViewYear(y => y - 1); setViewMonth(11); }
