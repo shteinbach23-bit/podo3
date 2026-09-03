@@ -1,16 +1,103 @@
-# React + Vite
+# Beauty App - Salon Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Профессиональная система управления для салонов красоты и мастеров.
 
-Currently, two official plugins are available:
+## 🚀 Функциональность
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Для мастеров
+- **Управление клиентами** — полные карточки клиентов с учётом специализации (подолог, маникюр, педикюр, брови/ресницы, тату)
+- **Календарь записей** — планирование встреч, управление временем, учёт оплаты и предоплат
+- **Мультиязычность** — русский, английский, немецкий
 
-## React Compiler
+### Для владельцев салонов
+- **Управление командой** — приглашение мастеров через код
+- **Обзор календаря** — просмотр и редактирование записей всех мастеров
+- **Конфиденциальность** — карточки клиентов доступны только мастерам (медицинские данные защищены)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Технологии
 
-## Expanding the Oxlint configuration
+- **Frontend:** React 19 + Vite
+- **Backend:** Firebase (Authentication + Firestore)
+- **Routing:** React Router v7
+- **Internationalization:** i18next
+- **Стиль:** Custom CSS с современным тёмным дизайном
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 📦 Установка
+
+```bash
+npm install
+```
+
+## 🔧 Разработка
+
+```bash
+npm run dev
+```
+
+Приложение откроется на `http://localhost:5173`
+
+## 🏗 Сборка
+
+```bash
+npm run build
+```
+
+## 🚀 Деплой
+
+Проект настроен для развёртывания на Firebase Hosting:
+
+```bash
+npm install -g firebase-tools
+firebase login
+firebase deploy
+```
+
+## 📂 Структура проекта
+
+```
+src/
+├── assets/          # Статические файлы
+├── components/      # React компоненты
+│   └── ClientFormModal.jsx
+├── config/          # Конфигурация специализаций
+│   └── specializations.js
+├── context/         # React Context (Auth)
+│   └── AuthContext.jsx
+├── pages/           # Страницы приложения
+│   ├── LoginPage.jsx
+│   ├── RegisterPage.jsx
+│   ├── ClientsPage.jsx
+│   ├── CalendarPage.jsx
+│   ├── SalonPage.jsx
+│   ├── SalonCalendarPage.jsx
+│   └── SalonMasterDetailPage.jsx
+├── services/        # Интеграция с Firestore
+│   └── firestore.js
+├── App.jsx          # Основной компонент
+├── App.css          # Стили приложения
+├── index.css        # Глобальные стили
+├── firebase.js      # Конфигурация Firebase
+├── i18n.js          # Конфигурация i18next
+└── main.jsx         # Точка входа
+```
+
+## 🔐 Безопасность
+
+- Firebase Authentication для регистрации и входа
+- Firestore Security Rules для защиты данных клиентов
+- Мультитенантная архитектура (каждый мастер видит только свои данные)
+
+## 🌍 Локализация
+
+Поддержка языков:
+- 🇷🇺 Русский (по умолчанию)
+- 🇬🇧 English
+- 🇩🇪 Deutsch
+
+## 📝 Лицензия
+
+Private project
+
+## 👨‍💻 Автор
+
+Разработано для профессионального использования в индустрии красоты.
