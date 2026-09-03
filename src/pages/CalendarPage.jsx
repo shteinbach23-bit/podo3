@@ -43,7 +43,8 @@ export default function CalendarPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
 
-  const today = new Date();
+  const _now = new Date();
+  const today = new Date(_now.getFullYear(), _now.getMonth(), _now.getDate());
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
   const [selectedDate, setSelectedDate] = useState(today);
