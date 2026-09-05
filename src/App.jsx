@@ -27,7 +27,7 @@ function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
-        <img src="/logo-icon.png" alt="Lumina" className="sidebar-logo-icon" />
+        <img src="/logo-icon.svg" alt="Lumina" className="sidebar-logo-icon" />
         <div className="sidebar-logo-text">
           <div className="sidebar-logo-title">LUMINA</div>
           <div className="sidebar-logo-subtitle">Для подологов</div>
