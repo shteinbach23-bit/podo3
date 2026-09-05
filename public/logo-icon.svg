@@ -1,0 +1,24 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Foot outline -->
+  <path d="M24 8 C18 8 14 12 14 18 C14 22 14 32 16 36 C18 40 20 42 24 42 C28 42 30 40 32 36 C34 32 34 22 34 18 C34 12 30 8 24 8 Z" 
+        fill="none" stroke="#2c5f7c" stroke-width="2.5"/>
+
+  <!-- Toes -->
+  <circle cx="18" cy="14" r="2.5" fill="#2c5f7c"/>
+  <circle cx="22" cy="12" r="2.5" fill="#2c5f7c"/>
+  <circle cx="26" cy="12" r="2.5" fill="#2c5f7c"/>
+  <circle cx="30" cy="14" r="2.5" fill="#2c5f7c"/>
+
+  <!-- Calendar icon inside foot -->
+  <rect x="20" y="22" width="8" height="10" rx="1" fill="none" stroke="#2c5f7c" stroke-width="1.5"/>
+  <line x1="20" y1="24" x2="28" y2="24" stroke="#2c5f7c" stroke-width="1.5"/>
+  <rect x="22" y="26" width="1.5" height="1.5" fill="#5a9fb8"/>
+  <rect x="25" y="26" width="1.5" height="1.5" fill="#5a9fb8"/>
+  <rect x="22" y="29" width="1.5" height="1.5" fill="#5a9fb8"/>
+  <rect x="25" y="29" width="1.5" height="1.5" fill="#5a9fb8"/>
+
+  <!-- Star -->
+  <path d="M40 8 L42 13 L47 13 L43 16 L45 21 L40 18 L35 21 L37 16 L33 13 L38 13 Z" 
+        fill="#d4a574" opacity="0.9"/>
+  <circle cx="40" cy="14" r="8" fill="#d4a574" opacity="0.15"/>
+</svg>
