@@ -35,7 +35,7 @@
 .sidebar-logo-icon {
   width: 36px;
   height: 36px;
-  background: #16a34a;
+  background: #2c5f7c;
   color: #fff;
   border-radius: 8px;
   display: flex;
@@ -87,12 +87,12 @@
 }
 
 .sidebar-link.active {
-  background: #dcfce7;
-  color: #15803d;
+  background: #e0f2fe;
+  color: #2c5f7c;
 }
 
 .sidebar-link.active svg {
-  stroke: #15803d;
+  stroke: #2c5f7c;
 }
 
 .sidebar-logout {
@@ -161,7 +161,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: #16a34a;
+  background: #2c5f7c;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -173,7 +173,7 @@
 }
 
 .cal-new-btn:hover {
-  background: #15803d;
+  background: #2c5f7c;
 }
 
 .cal-body {
@@ -288,19 +288,19 @@
 }
 
 .cal-cell--today {
-  background: #16a34a;
+  background: #2c5f7c;
   color: #fff;
   font-weight: 600;
   border-radius: 10px;
 }
 
 .cal-cell--today:hover {
-  background: #15803d;
+  background: #2c5f7c;
 }
 
 .cal-cell--selected {
-  background: #dcfce7;
-  color: #15803d;
+  background: #e0f2fe;
+  color: #2c5f7c;
   font-weight: 600;
 }
 
@@ -375,7 +375,7 @@
 .cal-appt-time {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #16a34a;
+  color: #2c5f7c;
   min-width: 44px;
 }
 
@@ -907,7 +907,7 @@ main {
 .form-field textarea:focus,
 .form-field select:focus {
   outline: none;
-  border-color: #16a34a;
+  border-color: #2c5f7c;
   background: #fff;
   box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
 }
