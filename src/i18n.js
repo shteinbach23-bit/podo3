@@ -5,7 +5,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 const resources = {
   ru: {
     translation: {
-      app_name: "Карточка клиента",
+      app_name: "Lumina",
       login: "Войти",
       register: "Регистрация",
       sign_up: "Зарегистрироваться",
