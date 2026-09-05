@@ -27,8 +27,11 @@ function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
-        <span className="sidebar-logo-icon">ПК</span>
-        <span className="sidebar-logo-text">{t("app_name")}</span>
+        <img src="/logo-icon.png" alt="Lumina" className="sidebar-logo-icon" />
+        <div className="sidebar-logo-text">
+          <div className="sidebar-logo-title">LUMINA</div>
+          <div className="sidebar-logo-subtitle">Для подологов</div>
+        </div>
       </div>
 
       <nav className="sidebar-nav">
